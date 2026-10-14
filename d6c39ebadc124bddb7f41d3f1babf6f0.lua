@@ -1,4 +1,8 @@
-local Players = game:GetService("Players")
+-- parche compat ejecutores: fromHex / table.find / string.split
+if not Color3.fromHex then function Color3.fromHex(h) h=tostring(h or""):gsub("#","") if #h==3 then h=h:sub(1,1):rep(2)..h:sub(2,2):rep(2)..h:sub(3,3):rep(2) end return Color3.fromRGB(tonumber(h:sub(1,2),16)or 255,tonumber(h:sub(3,4),16)or 255,tonumber(h:sub(5,6),16)or 255) end end
+if not table.find then function table.find(t,v) for i,x in ipairs(t) do if x==v then return i end end return nil end end
+if not string.split then function string.split(s,d) local r={} for m in tostring(s):gmatch("[^"..tostring(d).."]+") do r[#r+1]=m end return r end end
+	local Players = game:GetService("Players")
 local RunService = game:GetService("RunService")
 local UserInputService = game:GetService("UserInputService")
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
