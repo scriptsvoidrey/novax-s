@@ -22961,6 +22961,9 @@ Tabs.Fondos:Button({
         SelectedFondo = { Name = "Personalizado " .. id, ID = id, Reference = "rbxassetid://" .. id }
         if ApplySelectedBackground() then
             pcall(function() if writefile then writefile("novax_fondo.txt", id) end end)
+				end
+			end
+			})
 
 Tabs.Fondos:Button({
     Title = "Restablecer fondo",
